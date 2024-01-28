@@ -20,26 +20,29 @@
                 <select class="form-select" id="listing_type" name="listing_type" required>
                     <option value="" disabled selected>Select Listing Type</option>
                     <option value="auction">Auction</option>
-                    <option value="classified">Classified</option>
+                    <option selected value="classified">Classified</option>
                 </select>
             </div>
 
-            <!-- auction specific fields -->
-            <div class="mb-3" id="start_date" style="display: none;">
-                <label for="start_date" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="start_date" name="start_date">
-            </div>
+            <fieldset id="auction_fields" class="mx-4 bg-light p-4" style="display: none;">
+                <h5>Auction Fields</h5>
+                <!-- auction specific fields -->
+                <div class="mb-3" id="start_date" style="display: none;">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="start_date" name="start_date">
+                </div>
 
-            <div class="mb-3" id="end_date" style="display: none;">
-                <label for="end_date" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="end_date" name="end_date">
-            </div>
+                <div class="mb-3" id="end_date" style="display: none;">
+                    <label for="end_date" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="end_date" name="end_date">
+                </div>
 
-            <!-- rserve price -->
-            <div class="mb-3" id="reserve_price" style="display: none;">
-                <label for="reserve_price" class="form-label">Reserve Price</label>
-                <input type="number" class="form-control" id="reserve_price" name="reserve_price">
-            </div>
+                <!-- reserve price -->
+                <div class="mb-3" id="reserve_price" style="display: none;">
+                    <label for="reserve_price" class="form-label">Reserve Price</label>
+                    <input type="number" class="form-control" id="reserve_price" name="reserve_price">
+                </div>
+            </fieldset>
 
             <div class="mb-3">
                 <label for="year" class="form-label">Year</label>
@@ -90,13 +93,16 @@
         var startDate = document.getElementById('start_date');
         var endDate = document.getElementById('end_date');
         var reservePrice = document.getElementById('reserve_price');
+        var auctionFields = document.getElementById('auction_fields');
 
         listingType.addEventListener('change', function () {
             if (listingType.value === 'auction') {
+                auctionFields.style.display = 'block';
                 startDate.style.display = 'block';
                 endDate.style.display = 'block';
                 reservePrice.style.display = 'block';
             } else {
+                auctionFields.style.display = 'none';
                 startDate.style.display = 'none';
                 endDate.style.display = 'none';
                 reservePrice.style.display = 'none';
