@@ -63,7 +63,9 @@
                 <label for="model_id" class="form-label">Model</label>
                 <select class="form-select" id="model_id" name="model_id" required>
                     <option value="" disabled selected>Select Model</option>
-                    <!-- Models will be populated based on the selected make using JavaScript or by fetching from the server -->
+                    @foreach($models as $model)
+                        <option value="{{ $model->id }}">{{ $model->name }}</option>
+                    @endforeach
                 </select>
             </div>
 
