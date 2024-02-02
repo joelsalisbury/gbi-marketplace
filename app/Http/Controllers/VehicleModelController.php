@@ -11,7 +11,8 @@ class VehicleModelController extends Controller
      */
     public function index()
     {
-        //
+        $models = \App\Models\VehicleModel::all();
+        return view('models.index', compact('models'));
     }
 
     /**
@@ -35,7 +36,8 @@ class VehicleModelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $model = \App\Models\VehicleModel::find($id);
+        return view('models.show', compact('model'));
     }
 
     /**

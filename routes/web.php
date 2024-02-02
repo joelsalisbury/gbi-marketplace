@@ -26,11 +26,9 @@ Route::resource('listings',
 Route::resource('makes', 
     \App\Http\Controllers\MakeController::class);
 
-// resource routes for Models
-Route::resource('models', 
-    \App\Http\Controllers\ModelController::class);
-
 // resource routes for Users
 Route::resource('users', 
     \App\Http\Controllers\UserController::class);
 
+Route::resource('models', 
+    \App\Http\Controllers\VehicleModelController::class);
